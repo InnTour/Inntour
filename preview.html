@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InnTour Preview - Test Design</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: #0F172A;
+            color: white;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem;
+        }
+
+        .video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .video-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.75) 0%, rgba(30, 41, 59, 0.6) 50%, rgba(247, 169, 61, 0.3) 100%);
+            z-index: 1;
+        }
+
+        .video-bg iframe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100vw;
+            height: 56.25vw;
+            min-height: 100vh;
+            min-width: 177.77vh;
+            transform: translate(-50%, -50%);
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 1000px;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+            line-height: 1.2;
+        }
+
+        .gradient-text {
+            background: linear-gradient(120deg, #FF9635, #FFB84D, #FCD34D);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.95);
+            text-shadow: 0 1px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(120deg, #F7A93D, #FFB84D);
+            color: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(247, 169, 61, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(120deg, #F7A93D, #FFB84D);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-top: 0.5rem;
+        }
+
+        .status {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: rgba(16, 185, 129, 0.2);
+            color: #10B981;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            backdrop-filter: blur(10px);
+            z-index: 10;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content > * {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .content h1 { animation-delay: 0.1s; }
+        .content .subtitle { animation-delay: 0.2s; }
+        .content .buttons { animation-delay: 0.3s; }
+        .content .stats { animation-delay: 0.4s; }
+
+        @media (max-width: 768px) {
+            .stats {
+                grid-template-columns: 1fr 1fr;
+            }
+            .buttons {
+                flex-direction: column;
+            }
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="status">✅ Design Caricato Correttamente</div>
+
+    <section class="hero">
+        <div class="video-bg">
+            <iframe
+                src="https://www.youtube.com/embed/XhB4SonU7Pw?autoplay=1&mute=1&loop=1&playlist=XhB4SonU7Pw&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
+                frameborder="0"
+                allow="autoplay; encrypted-media"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="content">
+            <h1>
+                Il Futuro Digitale delle
+                <span class="gradient-text">Aree Interne</span>
+            </h1>
+
+            <p class="subtitle">
+                Dalla digitalizzazione turistica alla governance partecipata in blockchain:
+                trasformiamo i borghi dell'Appennino in ecosistemi innovativi e sostenibili
+            </p>
+
+            <div class="buttons">
+                <a href="#" class="btn btn-primary">
+                    Pubbliche Amministrazioni →
+                </a>
+                <a href="#" class="btn btn-secondary">
+                    Scopri MetaBorghi
+                </a>
+            </div>
+
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number">1.000+</div>
+                    <div class="stat-label">Comuni Target</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">10.000+</div>
+                    <div class="stat-label">Aziende Servite</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5.000+</div>
+                    <div class="stat-label">Partner Sistema</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">10</div>
+                    <div class="stat-label">Macro-Aree</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div style="background: white; color: #0F172A; padding: 4rem 2rem; text-align: center;">
+        <h2 style="font-size: 2rem; margin-bottom: 1rem;">🎨 Design Test - Hero Section</h2>
+        <p style="font-size: 1.125rem; max-width: 600px; margin: 0 auto; color: #64748B;">
+            Se vedi questo con i colori, il video di sfondo, e le card trasparenti con effetto blur,
+            significa che il design funziona correttamente! ✅
+        </p>
+        <br>
+        <p style="color: #F7A93D; font-weight: 600; font-size: 1.25rem;">
+            Colore Fusion: Arancio-Giallo ✨
+        </p>
+    </div>
+</body>
+</html>
