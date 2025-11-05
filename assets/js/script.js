@@ -310,32 +310,55 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 // ========================================
+// Scroll Reveal Animations
+// ========================================
+
+// Intersection Observer for scroll-triggered animations
+const scrollRevealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            // Optionally unobserve after revealing
+            // scrollRevealObserver.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -50px 0px'
+});
+
+// ========================================
 // Page Load Animations
 // ========================================
 
 window.addEventListener('DOMContentLoaded', () => {
-    // Add fade-in animation to sections
-    const sections = document.querySelectorAll('.section');
+    // Observe all scroll-reveal elements
+    const scrollRevealElements = document.querySelectorAll('.scroll-reveal');
+    scrollRevealElements.forEach(element => {
+        scrollRevealObserver.observe(element);
+    });
 
-    const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '0';
-                entry.target.style.transform = 'translateY(30px)';
-                entry.target.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    // Add stagger delays to stat cards
+    const statCards = document.querySelectorAll('.stat-card');
+    statCards.forEach((card, index) => {
+        card.style.animationDelay = `${0.1 * (index + 1)}s`;
+    });
 
-                setTimeout(() => {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }, 100);
+    // Add scroll reveal to section headers
+    const sectionHeaders = document.querySelectorAll('.section-header');
+    sectionHeaders.forEach(header => {
+        header.classList.add('scroll-reveal');
+        scrollRevealObserver.observe(header);
+    });
 
-                sectionObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-
-    sections.forEach(section => {
-        sectionObserver.observe(section);
+    // Add scroll reveal to feature cards
+    const featureCards = document.querySelectorAll('.feature-card, .meta-card, .project-card');
+    featureCards.forEach((card, index) => {
+        if (!card.classList.contains('scroll-reveal')) {
+            card.classList.add('scroll-reveal');
+        }
+        card.style.transitionDelay = `${0.1 * index}s`;
+        scrollRevealObserver.observe(card);
     });
 
     // Initialize first section highlight

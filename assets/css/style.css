@@ -4,43 +4,48 @@
 
 /* CSS Variables */
 :root {
-    /* Colors */
-    --primary-orange: #F59E0B;
+    /* Colors - Contemporary Orange-Yellow Fusion Palette */
+    --primary-fusion: #F7A93D;
+    --primary-orange: #FF9635;
+    --primary-yellow: #FFB84D;
     --primary-green: #10B981;
     --primary-blue: #3B82F6;
-    --primary-yellow: #EAB308;
     --primary-purple: #8B5CF6;
 
-    --dark: #1F2937;
-    --dark-lighter: #374151;
-    --gray: #6B7280;
-    --gray-light: #9CA3AF;
-    --light: #F9FAFB;
+    --dark: #0F172A;
+    --dark-lighter: #1E293B;
+    --gray: #64748B;
+    --gray-light: #CBD5E1;
+    --light: #F8FAFC;
     --white: #FFFFFF;
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-green) 50%, var(--primary-blue) 100%);
+    /* Gradients - Contemporary Fusion */
+    --gradient-primary: linear-gradient(135deg, #FF9635 0%, #FFB84D 50%, #FCD34D 100%);
+    --gradient-fusion: linear-gradient(120deg, #F7A93D 0%, #FFB84D 100%);
+    --gradient-soft: linear-gradient(135deg, rgba(247, 169, 61, 0.1) 0%, rgba(255, 184, 77, 0.05) 100%);
     --gradient-purple: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-blue) 100%);
 
-    /* Typography */
+    /* Typography - Contemporary Clean */
     --font-display: 'Playfair Display', serif;
     --font-body: 'Inter', sans-serif;
 
-    /* Spacing */
-    --section-padding: 5rem 0;
-    --container-padding: 0 1.5rem;
+    /* Spacing - More Breathing Room */
+    --section-padding: 6rem 0;
+    --container-padding: 0 2rem;
 
-    /* Transitions */
-    --transition-base: all 0.3s ease;
+    /* Transitions - Smoother */
+    --transition-base: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.2s ease;
+    --transition-slow: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 
-    /* Shadows */
-    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
-    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
-    --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
-    --shadow-xl: 0 20px 50px rgba(0,0,0,0.2);
+    /* Shadows - Softer Contemporary */
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+    --shadow-lg: 0 10px 30px rgba(0,0,0,0.12);
+    --shadow-xl: 0 20px 60px rgba(0,0,0,0.15);
 
-    /* Border Radius */
-    --radius-sm: 0.5rem;
+    /* Border Radius - Contemporary */
+    --radius-sm: 0.75rem;
     --radius-md: 1rem;
     --radius-lg: 1.5rem;
     --radius-xl: 2rem;
@@ -210,7 +215,7 @@ img {
 }
 
 .gradient-text-orange {
-    background: linear-gradient(135deg, var(--primary-orange), var(--primary-yellow));
+    background: var(--gradient-fusion);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -232,7 +237,7 @@ img {
 
 /* Text Utilities */
 .text-primary {
-    color: var(--primary-orange);
+    color: var(--primary-fusion);
 }
 
 .text-highlight {
@@ -312,7 +317,7 @@ img {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--primary-orange);
+    background: var(--gradient-fusion);
     transition: width 0.3s ease;
 }
 
@@ -369,38 +374,43 @@ img {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--primary-orange), var(--primary-yellow));
+    background: var(--gradient-fusion);
     color: var(--white);
     box-shadow: var(--shadow-md);
+    font-weight: 600;
+    letter-spacing: 0.01em;
 }
 
 .btn-primary:hover {
-    box-shadow: var(--shadow-lg);
-    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(247, 169, 61, 0.4);
+    transform: translateY(-3px);
 }
 
 .btn-secondary {
-    background: var(--white);
-    color: var(--dark);
-    border: 2px solid var(--gray-light);
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--white);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
 }
 
 .btn-secondary:hover {
-    border-color: var(--primary-orange);
-    color: var(--primary-orange);
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
 }
 
 .btn-cta {
-    background: var(--primary-yellow);
-    color: var(--dark);
+    background: var(--gradient-fusion);
+    color: var(--white);
     padding: 1.25rem 3rem;
     font-size: 1.125rem;
     box-shadow: var(--shadow-xl);
+    font-weight: 700;
 }
 
 .btn-cta:hover {
     transform: translateY(-3px);
-    box-shadow: 0 25px 60px rgba(234, 179, 8, 0.4);
+    box-shadow: 0 25px 60px rgba(247, 169, 61, 0.5);
 }
 
 .btn-full {
@@ -422,28 +432,36 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #FEF3C7 0%, #D1FAE5 50%, #DBEAFE 100%);
+    background: var(--dark);
     padding-top: 6rem;
     position: relative;
+    overflow: hidden;
 }
 
 .hero-content {
     text-align: center;
     max-width: 1000px;
     margin: 0 auto;
+    position: relative;
+    z-index: 2;
 }
 
 .hero-title {
     margin-bottom: 1.5rem;
+    color: var(--white);
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
 }
 
 .hero-subtitle {
     font-size: 1.25rem;
-    color: var(--dark-lighter);
+    color: rgba(255, 255, 255, 0.95);
     margin-bottom: 2.5rem;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.4);
+    font-weight: 400;
+    line-height: 1.8;
 }
 
 .hero-cta {
@@ -462,22 +480,25 @@ img {
 }
 
 .stat-card {
-    background: var(--white);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
     padding: 2rem;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
     transition: var(--transition-base);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .stat-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-xl);
+    background: rgba(255, 255, 255, 0.15);
 }
 
 .stat-number {
     font-size: 3rem;
     font-weight: 800;
-    background: var(--gradient-primary);
+    background: var(--gradient-fusion);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -486,7 +507,7 @@ img {
 
 .stat-label {
     font-size: 0.875rem;
-    color: var(--gray);
+    color: rgba(255, 255, 255, 0.9);
     font-weight: 500;
 }
 
@@ -497,14 +518,15 @@ img {
     left: 50%;
     transform: translateX(-50%);
     animation: bounce 2s infinite;
+    z-index: 2;
 }
 
 .scroll-indicator span {
     display: block;
     width: 1.5rem;
     height: 1.5rem;
-    border-left: 2px solid var(--primary-orange);
-    border-bottom: 2px solid var(--primary-orange);
+    border-left: 2px solid rgba(255, 255, 255, 0.8);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.8);
     transform: rotate(-45deg);
 }
 
@@ -558,7 +580,7 @@ img {
 }
 
 .feature-card-orange {
-    border-left-color: var(--primary-orange);
+    border-left-color: var(--primary-fusion);
 }
 
 .feature-card-green {
@@ -574,7 +596,7 @@ img {
 }
 
 .feature-card-orange .feature-icon {
-    color: var(--primary-orange);
+    color: var(--primary-fusion);
 }
 
 .feature-card-green .feature-icon {
@@ -690,7 +712,7 @@ img {
 }
 
 .meta-card-orange .meta-icon {
-    color: var(--primary-orange);
+    color: var(--primary-fusion);
 }
 
 .meta-card-purple .meta-icon {
@@ -809,7 +831,7 @@ img {
 }
 
 .project-orange .project-header {
-    background: linear-gradient(135deg, var(--primary-orange), var(--primary-yellow));
+    background: var(--gradient-fusion);
 }
 
 .project-green .project-header {
@@ -1152,12 +1174,12 @@ img {
 }
 
 .profile-btn:hover {
-    border-color: var(--primary-orange);
+    border-color: var(--primary-fusion);
 }
 
 .profile-btn.active {
-    border-color: var(--primary-orange);
-    background: rgba(245, 158, 11, 0.1);
+    border-color: var(--primary-fusion);
+    background: rgba(247, 169, 61, 0.1);
 }
 
 .profile-btn svg {
@@ -1166,7 +1188,7 @@ img {
 }
 
 .profile-btn.active svg {
-    color: var(--primary-orange);
+    color: var(--primary-fusion);
 }
 
 .contact-info {
@@ -1189,7 +1211,7 @@ img {
 }
 
 .info-item svg {
-    color: var(--primary-orange);
+    color: var(--primary-fusion);
     flex-shrink: 0;
 }
 
@@ -1249,8 +1271,8 @@ img {
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--primary-orange);
-    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+    border-color: var(--primary-fusion);
+    box-shadow: 0 0 0 3px rgba(247, 169, 61, 0.1);
 }
 
 .form-group textarea {
@@ -1319,7 +1341,7 @@ img {
 }
 
 .footer-links a:hover {
-    color: var(--primary-orange);
+    color: var(--primary-fusion);
 }
 
 .footer-bottom {
@@ -1461,13 +1483,166 @@ img {
 }
 
 /* ========================================
+   Animations - Contemporary Fade & Slide
+   ======================================== */
+
+/* Fade In Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Apply animations to elements */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.fade-in-up {
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+}
+
+.fade-in-left {
+    opacity: 0;
+    animation: fadeInLeft 0.8s ease forwards;
+}
+
+.fade-in-right {
+    opacity: 0;
+    animation: fadeInRight 0.8s ease forwards;
+}
+
+.fade-in-scale {
+    opacity: 0;
+    animation: fadeInScale 0.8s ease forwards;
+}
+
+/* Stagger animation delays */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
+
+/* Scroll-triggered animations */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Video Background Container */
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.video-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(15, 23, 42, 0.75) 0%,
+        rgba(30, 41, 59, 0.6) 50%,
+        rgba(247, 169, 61, 0.3) 100%
+    );
+    z-index: 1;
+}
+
+.video-background iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 56.25vw; /* 16:9 aspect ratio */
+    min-height: 100vh;
+    min-width: 177.77vh; /* 16:9 aspect ratio */
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+/* Hero content over video */
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* ========================================
    Print Styles
    ======================================== */
 
 @media print {
     .nav,
     .back-to-top,
-    .scroll-indicator {
+    .scroll-indicator,
+    .video-background {
         display: none;
     }
 
