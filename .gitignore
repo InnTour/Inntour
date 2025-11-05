@@ -77,3 +77,8 @@ wp-config.php
 # Sensitive Data
 config/secrets.php
 config/database.php
+
+# Archives
+*.zip
+*.tar.gz
+*.rar
