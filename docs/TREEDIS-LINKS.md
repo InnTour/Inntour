@@ -26,7 +26,7 @@ https://my.treedis.com/tour/lacedonia-vrcerogn
 
 ---
 
-## ❌ LINK DA CORREGGERE
+## ✅ LINK CONFERMATI
 
 ### 2. MAVI Museo Virtuale
 
@@ -37,17 +37,24 @@ https://my.treedis.com/tour/museomavi-zkmvh1jm
 
 **URL Nuovo (CORRETTO):**
 ```
-[DA FORNIRE - URL CORRETTO MAVI]
+https://my.treedis.com/tour/mavi-museo-antropologico-visivo-irpino-e639d163
 ```
 
 **Titolo Modal:** `MAVI Museo Virtuale - Tour 360°`
 
-**Stato:** ⏳ In attesa URL corretto
+**Stato:** ✅ Verificato e aggiornato
+
+**Piattaforma:** Treedis
+
+**Dove Usarlo:**
+- Sezione: Progetti (Card 2)
+- Widget: Button "Visita Tour Virtuale 360°"
+- Elementor: Link URL (senza target="_blank")
 
 **Note:**
-- Verificare con il cliente il link corretto
-- Testare il nuovo link prima di inserirlo in produzione
-- Aggiornare sia in documentazione che in Elementor
+- Link corretto fornito dal cliente in data 2024-11-05
+- Tour virtuale completo su piattaforma Treedis
+- Intercettato automaticamente dal sistema modal (dominio treedis.com)
 
 ---
 
@@ -60,17 +67,25 @@ https://my.treedis.com/tour/museoguardialombardi-hxajdvkq
 
 **URL Nuovo (CORRETTO):**
 ```
-[DA FORNIRE - URL CORRETTO GUARDIA LOMBARDI]
+https://www.museoguardialombardi.it/
 ```
 
-**Titolo Modal:** `Museo Guardia Lombardi - Tour 360°`
+**Titolo Modal:** `Museo Guardia Lombardi - Sito Ufficiale`
 
-**Stato:** ⏳ In attesa URL corretto
+**Stato:** ✅ Verificato e aggiornato
+
+**Piattaforma:** Sito ufficiale museo (ospita tour e-building.it integrato)
+
+**Dove Usarlo:**
+- Sezione: Progetti (Card 3)
+- Widget: Button "Visita Sito Museo"
+- Elementor: Link URL (senza target="_blank")
 
 **Note:**
-- Verificare con il cliente il link corretto
-- Controllare se il museo ha cambiato piattaforma o URL
-- Testare accessibilità del link
+- Link al sito ufficiale del museo (fornito dal cliente in data 2024-11-05)
+- Il sito include tour virtuale integrato via e-building.it
+- Intercettato automaticamente dal sistema modal (dominio museoguardialombardi.it)
+- Più professionale linkare al sito ufficiale che direttamente alla piattaforma tour
 
 ---
 
@@ -232,21 +247,26 @@ Quando ottieni i link corretti, aggiorna questi file:
 - ⏳ MAVI: In attesa URL corretto dal cliente
 - ⏳ Guardia Lombardi: In attesa URL corretto dal cliente
 
-### [DATA] - Aggiornamento MAVI
+### 2024-11-05 - Aggiornamento MAVI e Guardia Lombardi
 ```
+MAVI:
 Vecchio: https://my.treedis.com/tour/museomavi-zkmvh1jm
-Nuovo: [URL FORNITO]
-Motivo: [Spiegazione cambio URL]
-Aggiornato da: [Nome]
+Nuovo: https://my.treedis.com/tour/mavi-museo-antropologico-visivo-irpino-e639d163
+Motivo: URL corretto fornito dal cliente, slug tour aggiornato su Treedis
+Aggiornato da: Claude Code Development Team
+
+GUARDIA LOMBARDI:
+Vecchio: https://my.treedis.com/tour/museoguardialombardi-hxajdvkq
+Nuovo: https://www.museoguardialombardi.it/
+Motivo: Link al sito ufficiale del museo (più professionale, include tour integrato)
+Piattaforma: Sito ufficiale con tour e-building.it embedded
+Aggiornato da: Claude Code Development Team
 ```
 
-### [DATA] - Aggiornamento Guardia Lombardi
-```
-Vecchio: https://my.treedis.com/tour/museoguardialombardi-hxajdvkq
-Nuovo: [URL FORNITO]
-Motivo: [Spiegazione cambio URL]
-Aggiornato da: [Nome]
-```
+**Modifiche JavaScript:**
+- Aggiunto dominio `museoguardialombardi.it` ai selettori automatici
+- Tutti i link a museoguardialombardi.it si aprono in modal automaticamente
+- Sistema intercetta: treedis.com, museoguardialombardi.it, virtualtour, data-modal="true"
 
 ---
 

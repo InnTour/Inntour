@@ -24,6 +24,7 @@
         // Selettori per link che devono aprirsi in modal
         externalLinkSelectors: [
             'a[href*="treedis.com"]',
+            'a[href*="museoguardialombardi.it"]',
             'a[href*="virtualtour"]',
             'a[data-modal="true"]'
         ],
