@@ -4,26 +4,46 @@
 
 /* CSS Variables */
 :root {
-    /* Colors - Contemporary Orange-Yellow Fusion Palette */
-    --primary-fusion: #F7A93D;
-    --primary-orange: #FF9635;
-    --primary-yellow: #FFB84D;
-    --primary-green: #10B981;
-    --primary-blue: #3B82F6;
-    --primary-purple: #8B5CF6;
+    /* Colors - InnTour Brand Palette (Logo-Based Multi-Color) */
 
+    /* PRIMARY - Arancione (Energia, Innovazione, CTA) - Colore Dominante */
+    --primary: #FF7A3D;
+    --primary-light: #FF9655;
+    --primary-dark: #E66A2C;
+    --primary-rgb: 255, 122, 61;
+
+    /* SECONDARY - Blu (Fiducia, Tecnologia, Professionalità) */
+    --secondary: #0EA5E9;
+    --secondary-light: #38BDF8;
+    --secondary-dark: #0284C7;
+    --secondary-rgb: 14, 165, 233;
+
+    /* ACCENT 1 - Verde (Sostenibilità, Crescita, Natura) */
+    --accent-green: #10B981;
+    --accent-green-light: #34D399;
+    --accent-green-dark: #059669;
+
+    /* ACCENT 2 - Giallo (Ottimismo, Energia, Luce) */
+    --accent-yellow: #FBBF24;
+    --accent-yellow-light: #FCD34D;
+    --accent-yellow-dark: #F59E0B;
+
+    /* NEUTRALS */
     --dark: #0F172A;
     --dark-lighter: #1E293B;
+    --dark-light: #334155;
     --gray: #64748B;
     --gray-light: #CBD5E1;
+    --gray-lighter: #E2E8F0;
     --light: #F8FAFC;
     --white: #FFFFFF;
 
-    /* Gradients - Contemporary Fusion */
-    --gradient-primary: linear-gradient(135deg, #FF9635 0%, #FFB84D 50%, #FCD34D 100%);
-    --gradient-fusion: linear-gradient(120deg, #F7A93D 0%, #FFB84D 100%);
-    --gradient-soft: linear-gradient(135deg, rgba(247, 169, 61, 0.1) 0%, rgba(255, 184, 77, 0.05) 100%);
-    --gradient-purple: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-blue) 100%);
+    /* Gradients - Brand Multi-Color */
+    --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--accent-yellow) 100%);
+    --gradient-hero: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, var(--accent-yellow-light) 100%);
+    --gradient-tech: linear-gradient(135deg, var(--secondary) 0%, var(--accent-green) 100%);
+    --gradient-warm: linear-gradient(120deg, var(--primary-light) 0%, var(--accent-yellow) 100%);
+    --gradient-soft: linear-gradient(135deg, rgba(var(--primary-rgb), 0.1) 0%, rgba(var(--secondary-rgb), 0.05) 100%);
 
     /* Typography - Contemporary Clean */
     --font-display: 'Playfair Display', serif;
@@ -215,21 +235,21 @@ img {
 }
 
 .gradient-text-orange {
-    background: var(--gradient-fusion);
+    background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
 .gradient-text-green {
-    background: linear-gradient(135deg, var(--primary-green), #34D399);
+    background: linear-gradient(135deg, var(--accent-green), #34D399);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
 .gradient-text-blue {
-    background: linear-gradient(135deg, var(--primary-blue), #60A5FA);
+    background: linear-gradient(135deg, var(--secondary), #60A5FA);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -237,12 +257,12 @@ img {
 
 /* Text Utilities */
 .text-primary {
-    color: var(--primary-fusion);
+    color: var(--primary);
 }
 
 .text-highlight {
     font-weight: 600;
-    color: var(--primary-green);
+    color: var(--accent-green);
 }
 
 /* ========================================
@@ -304,7 +324,7 @@ img {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--gradient-fusion);
+    background: var(--gradient-primary);
     transition: width 0.3s ease;
 }
 
@@ -361,7 +381,7 @@ img {
 }
 
 .btn-primary {
-    background: var(--gradient-fusion);
+    background: var(--gradient-primary);
     color: var(--white);
     box-shadow: var(--shadow-md);
     font-weight: 600;
@@ -387,7 +407,7 @@ img {
 }
 
 .btn-cta {
-    background: var(--gradient-fusion);
+    background: var(--gradient-primary);
     color: var(--white);
     padding: 1.25rem 3rem;
     font-size: 1.125rem;
@@ -485,7 +505,7 @@ img {
 .stat-number {
     font-size: 3rem;
     font-weight: 800;
-    background: var(--gradient-fusion);
+    background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -567,15 +587,15 @@ img {
 }
 
 .feature-card-orange {
-    border-left-color: var(--primary-fusion);
+    border-left-color: var(--primary);
 }
 
 .feature-card-green {
-    border-left-color: var(--primary-green);
+    border-left-color: var(--accent-green);
 }
 
 .feature-card-blue {
-    border-left-color: var(--primary-blue);
+    border-left-color: var(--secondary);
 }
 
 .feature-icon {
@@ -583,15 +603,15 @@ img {
 }
 
 .feature-card-orange .feature-icon {
-    color: var(--primary-fusion);
+    color: var(--primary);
 }
 
 .feature-card-green .feature-icon {
-    color: var(--primary-green);
+    color: var(--accent-green);
 }
 
 .feature-card-blue .feature-icon {
-    color: var(--primary-blue);
+    color: var(--secondary);
 }
 
 .feature-title {
@@ -636,7 +656,7 @@ img {
 }
 
 .soluzione-title {
-    color: var(--primary-green);
+    color: var(--accent-green);
     font-size: 2rem;
     margin-bottom: 2rem;
 }
@@ -657,7 +677,7 @@ img {
 
 .check-icon {
     flex-shrink: 0;
-    color: var(--primary-green);
+    color: var(--accent-green);
     margin-top: 0.25rem;
 }
 
@@ -699,15 +719,15 @@ img {
 }
 
 .meta-card-orange .meta-icon {
-    color: var(--primary-fusion);
+    color: var(--primary);
 }
 
 .meta-card-purple .meta-icon {
-    color: var(--primary-purple);
+    color: var(--secondary);
 }
 
 .meta-card-green .meta-icon {
-    color: var(--primary-green);
+    color: var(--accent-green);
 }
 
 .meta-title {
@@ -736,7 +756,7 @@ img {
 }
 
 .meta-features svg {
-    color: var(--primary-green);
+    color: var(--accent-green);
 }
 
 /* MetaBorghi Ecosystem */
@@ -818,15 +838,15 @@ img {
 }
 
 .project-orange .project-header {
-    background: var(--gradient-fusion);
+    background: var(--gradient-primary);
 }
 
 .project-green .project-header {
-    background: linear-gradient(135deg, var(--primary-green), #34D399);
+    background: linear-gradient(135deg, var(--accent-green), #34D399);
 }
 
 .project-blue .project-header {
-    background: linear-gradient(135deg, var(--primary-blue), #60A5FA);
+    background: linear-gradient(135deg, var(--secondary), #60A5FA);
 }
 
 .project-header h3 {
@@ -871,7 +891,7 @@ img {
 
 .project-results li::before {
     content: '✓';
-    color: var(--primary-green);
+    color: var(--accent-green);
     font-weight: 700;
 }
 
@@ -907,7 +927,7 @@ img {
 .price-amount {
     font-size: 3rem;
     font-weight: 800;
-    color: var(--primary-yellow);
+    color: var(--accent-yellow);
     margin-bottom: 0.5rem;
 }
 
@@ -931,7 +951,7 @@ img {
 }
 
 .servizi-benefits svg {
-    color: var(--primary-green);
+    color: var(--accent-green);
     flex-shrink: 0;
 }
 
@@ -964,7 +984,7 @@ img {
 
 .package-list li::before {
     content: '✓';
-    color: var(--primary-green);
+    color: var(--accent-green);
     font-weight: 700;
     font-size: 1.25rem;
     flex-shrink: 0;
@@ -975,7 +995,7 @@ img {
 }
 
 .obiettivo-card {
-    background: linear-gradient(135deg, var(--primary-yellow), var(--primary-orange));
+    background: linear-gradient(135deg, var(--accent-yellow), var(--primary));
     padding: 2.5rem;
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-xl);
@@ -1052,17 +1072,17 @@ img {
 
 .area-attivo {
     background: rgba(209, 250, 229, 0.8);
-    border-left-color: var(--primary-green);
+    border-left-color: var(--accent-green);
 }
 
 .area-sviluppo {
     background: rgba(219, 234, 254, 0.8);
-    border-left-color: var(--primary-blue);
+    border-left-color: var(--secondary);
 }
 
 .area-pianificato {
     background: rgba(254, 249, 195, 0.8);
-    border-left-color: var(--primary-yellow);
+    border-left-color: var(--accent-yellow);
 }
 
 .area-header {
@@ -1086,11 +1106,11 @@ img {
 }
 
 .area-attivo .area-badge {
-    color: var(--primary-green);
+    color: var(--accent-green);
 }
 
 .area-sviluppo .area-badge {
-    color: var(--primary-blue);
+    color: var(--secondary);
 }
 
 .area-pianificato .area-badge {
@@ -1104,7 +1124,7 @@ img {
 }
 
 .territorio-cta {
-    background: linear-gradient(135deg, var(--primary-orange), var(--primary-green));
+    background: linear-gradient(135deg, var(--primary), var(--accent-green));
     padding: 3rem;
     border-radius: var(--radius-xl);
     text-align: center;
@@ -1161,11 +1181,11 @@ img {
 }
 
 .profile-btn:hover {
-    border-color: var(--primary-fusion);
+    border-color: var(--primary);
 }
 
 .profile-btn.active {
-    border-color: var(--primary-fusion);
+    border-color: var(--primary);
     background: rgba(247, 169, 61, 0.1);
 }
 
@@ -1175,7 +1195,7 @@ img {
 }
 
 .profile-btn.active svg {
-    color: var(--primary-fusion);
+    color: var(--primary);
 }
 
 .contact-info {
@@ -1198,7 +1218,7 @@ img {
 }
 
 .info-item svg {
-    color: var(--primary-fusion);
+    color: var(--primary);
     flex-shrink: 0;
 }
 
@@ -1258,7 +1278,7 @@ img {
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--primary-fusion);
+    border-color: var(--primary);
     box-shadow: 0 0 0 3px rgba(247, 169, 61, 0.1);
 }
 
@@ -1328,7 +1348,7 @@ img {
 }
 
 .footer-links a:hover {
-    color: var(--primary-fusion);
+    color: var(--primary);
 }
 
 .footer-bottom {
